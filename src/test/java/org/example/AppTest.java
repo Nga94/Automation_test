@@ -1,8 +1,6 @@
 package org.example;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
-
+import org.example.homework.hk12052020.AutoTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +12,7 @@ import java.util.Arrays;
  */
 public class AppTest 
 {
-    App app = new App();
+    AutoTest autoTest = new AutoTest();
 
     /**
      * Test task 1
@@ -27,7 +25,7 @@ public class AppTest
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1,5,6,7,8,9));
 
         //Action
-        ArrayList<Integer> actualList = app.task_1(arrInput);
+        ArrayList<Integer> actualList = autoTest.task_1(arrInput);
 
         //Assertion
         Assert.assertEquals(expected, actualList);
@@ -44,7 +42,7 @@ public class AppTest
                 new ArrayList<Integer>(Arrays.asList(1,2,3,2,3,4,4,5,6,7,8,9));
         //Action
         int expected = 6;
-        int result = app.task_2(arr);
+        int result = autoTest.task_2(arr);
 
         //Assertion
         Assert.assertEquals(expected, result);
@@ -62,7 +60,7 @@ public class AppTest
                 new ArrayList<>(Arrays.asList(2,3,5,7,11,13));
 
         //Action
-        ArrayList<Integer> actualList = app.task_3(n);
+        ArrayList<Integer> actualList = autoTest.task_3(n);
 
         //Assertion
         Assert.assertEquals(expected, actualList);
@@ -79,7 +77,7 @@ public class AppTest
         int expected = 24;
 
         //Action
-        int result = app.task_4(n);
+        int result = autoTest.task_4(n);
 
         //Assertion
         Assert.assertEquals(expected, result);
@@ -97,7 +95,7 @@ public class AppTest
                 new ArrayList<>(Arrays.asList(2,2,2,3,5,5,5));
 
         //Action
-        ArrayList<Integer> actualList = app.task_5(n);
+        ArrayList<Integer> actualList = autoTest.task_5(n);
 
         //Assertion
         Assert.assertEquals(expected, actualList);
@@ -115,7 +113,7 @@ public class AppTest
                 new ArrayList<>(Arrays.asList(1,2,3,5,8,13,21,34,55,89));
 
         //Action
-        ArrayList<Integer> actualList = app.task_6(n);
+        ArrayList<Integer> actualList = autoTest.task_6(n);
 
         //Assertion
         Assert.assertEquals(expected, actualList);

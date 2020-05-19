@@ -1,8 +1,11 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import org.apache.log4j.PropertyConfigurator;
+import org.example.homework.hk15052020.Action;
+import org.example.homework.hk15052020.CauThu;
+import org.example.homework.hk15052020.VanDongVien;
+
+import java.util.*;
 
 /**
  * Hello world!
@@ -12,120 +15,30 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.print("Nguyễn Thị Nga");
-    }
+        // Begin task-1
+        Action ac = new Action();
+        VanDongVien v = new VanDongVien("nganguyen", 26, 47f, 1.6f);
+        v.print();
 
-    /**
-     * Task 1
-     */
-    public ArrayList<Integer> task_1(ArrayList<Integer> a)
-    {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(a.get(0));
-        for (int i = 1; i < a.size(); i++) {
-            if (!arr.contains(a.get(i))) {
-                arr.add(a.get(i));
-            } else {
-                arr.remove(a.get(i));
-            }
-        }
-        return arr;
-    }
+        CauThu c;
+        ArrayList<CauThu> cauThus = new ArrayList<>();
+        c = new CauThu("nganguyen", 26, 47f, 1.6f, "abc", 10000);
+        cauThus.add(c);
+        c = new CauThu("datngo", 24, 57f, 1.6f, "abc", 20000);
+        cauThus.add(c);
+        c = new CauThu("chuyennguyen", 30, 57f, 1.63f, "abc", 30000);
+        cauThus.add(c);
+        c = new CauThu("hoanhp", 25, 65f, 1.78f, "abc", 10000);
+        cauThus.add(c);
 
-    /**
-     * Task 2
-     */
-    public int task_2(ArrayList<Integer> a)
-    {
-        ArrayList<Integer> arr = task_1(a);;
-        return a.size() - arr.size();
-    }
+        // print
+        System.out.println("--------- Hiện thị danh sách chưa sắp xếp -------------");
+        ac.printArray(cauThus);
 
-    /**
-     * Task 3
-     */
-    public ArrayList<Integer> task_3(int n)
-    {
-        ArrayList<Integer> result = new ArrayList<>();
-        int check = 0;
-        int i = 0;
-        while (check < n) {
-            if (check_prime(i)) {
-                check += 1;
-                result.add(i);
-            }
-            i += 1;
-        }
-        return result;
-    }
-
-    /**
-     * Task 4
-     */
-    public int task_4(int number) {
-        String str = String.valueOf(number);
-        int sum = 0;
-        for (int i=0; i<str.length(); i++) {
-            sum += Integer.parseInt(String.valueOf(str.charAt(i)));
-        }
-        return sum;
-    }
-
-    /**
-     * Task 5
-     */
-    public ArrayList<Integer> task_5(int n) {
-        int i = 2;
-        ArrayList<Integer> listNumbers = new ArrayList<Integer>();
-        while (n > 1) {
-            if (n % i == 0) {
-                n = n / i;
-                listNumbers.add(i);
-            } else {
-                i++;
-            }
-        }
-        if (listNumbers.isEmpty()) {
-            listNumbers.add(n);
-        }
-        return listNumbers;
-    }
-
-    /**
-     * Task 6
-     */
-    public ArrayList<Integer> task_6(int n)
-    {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        for (int i = 2; i < n; i++) {
-            int ai = arr.get(i -1) + arr.get(i - 2);
-            if (ai < n) {
-                arr.add(ai);
-            } else {
-                break;
-            }
-        }
-        return  arr;
-    }
-
-    /**
-     * Check prime
-     */
-    private boolean check_prime(int n) {
-        int i, m=0;
-        m=n/2;
-        if(n==0||n==1){
-
-            return false;
-        }else{
-            for(i=2;i<=m;i++){
-                if(n%i==0){
-                    return false;
-                }
-            }
-            return true;
-        }
+        //sort and print
+        System.out.println("--------- Hiện thị danh sách đã sắp xếp -------------");
+        ac.sapxep(cauThus);
+        ac.printArray(cauThus);
+        //End
     }
 }
